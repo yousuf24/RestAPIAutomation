@@ -1,6 +1,10 @@
 package com.tcs.dnd;
 
 import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Assert;
 
 import com.tcs.Utility.Utility;
 import com.tcs.resources.PayLoad;
@@ -16,11 +20,17 @@ public class ParsingComplexJson {
 		System.out.println(js.getString("dashboard.IsPremiumAvailable"));
 		
 		//Print all courses title
-		int noOfCourses=js.getInt("courses.size()");
+		/*int noOfCourses=js.getInt("courses.size()");
 		for(int i=0;i<noOfCourses;i++) {
 			String t=js.getString(MessageFormat.format("courses[{0}].title", i));
 			System.out.print(t+"\t");
-		}
+		}*/
+		String[] arr={"a","b","c"};
+		Pojo jsonObj=new Pojo();
+		CourseList cl=jsonObj.getCourses();
+		List<Course> waList=cl.getWebAutomation();
+		waList.forEach(x->System.out.println(x.getCourseTitle()));
+		Assert.assertTrue(waList.equals(Arrays.asList(arr)));
 
 	}
 

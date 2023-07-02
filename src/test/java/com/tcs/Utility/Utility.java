@@ -8,4 +8,7 @@ public class Utility {
 public static JsonPath rawToJson(Response response) {	
 	return new JsonPath(response.asPrettyString()).using(new JsonPathConfig("UTF-8"));
 }
+public static JsonPath rawToJson(String resp) {
+	return new JsonPath(resp);
+}
 }

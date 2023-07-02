@@ -15,12 +15,12 @@ public class Dynamicjson {
   @Test(dataProvider = "dp")
   public void f(String n, String s) {
 	  //Addbook api
-	  RestAssured.baseURI="http://216.10.245.166";
+	  RestAssured.baseURI="https://rahulshettyacademy.com";//"http://216.10.245.166";
 		
 		String body=PayLoad.getPayLoadAddBook(n, s);
 		
 		Response addBookResp=given()//.log().all()
-				.header("Content-Type","application/json").body(body)
+				.header("Content-Type","Application/json").body(body)
 		.when().post("/Library/Addbook.php")//.asString()
 		.then().log().all()
 		.assertThat().statusCode(200).extract().response();
