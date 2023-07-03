@@ -1,7 +1,233 @@
 package com.tcs.dnd;
 
 import java.util.List;
+class DeleteOrderResp{
+	private String message;
 
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+}
+class GetOrderResp{
+	private Data data;
+	public Data getData() {
+		return data;
+	}
+	public void setData(Data data) {
+		this.data = data;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	private String message;
+}
+class Data{
+	private String _id,orderById,orderBy,productOrderedId,productName,country,productDescription,productImage,orderPrice,__v;
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+	public String getOrderById() {
+		return orderById;
+	}
+
+	public void setOrderById(String orderById) {
+		this.orderById = orderById;
+	}
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
+	public String getProductOrderedId() {
+		return productOrderedId;
+	}
+
+	public void setProductOrderedId(String productOrderedId) {
+		this.productOrderedId = productOrderedId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
+	}
+
+	public String getOrderPrice() {
+		return orderPrice;
+	}
+
+	public void setOrderPrice(String orderPrice) {
+		this.orderPrice = orderPrice;
+	}
+
+	public String get__v() {
+		return __v;
+	}
+
+	public void set__v(String __v) {
+		this.__v = __v;
+	}
+}
+class CreateOrderResp{
+	private List<String> orders,productOrderId;
+	public List<String> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<String> orders) {
+		this.orders = orders;
+	}
+	public List<String> getProductOrderId() {
+		return productOrderId;
+	}
+	public void setProductOrderId(List<String> productOrderId) {
+		this.productOrderId = productOrderId;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	private String message;
+}
+class Orders{
+	private List<Addr> orderList;
+
+	public List<Addr> getOrders() {
+		return orderList;
+	}
+
+	public void setOrderList(List<Addr> orderList) {
+		this.orderList = orderList;
+	}
+}
+class Addr{
+	private String productOrderId,country;	
+
+	public String getProductOrderId() {
+		return productOrderId;
+	}
+
+	public void setProductOrderId(String productOrderid) {
+		this.productOrderId = productOrderid;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+}
+class CreateProduct{
+	private String productId,message;
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+}
+class LoginResponse{
+	private String token,userId,message;
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+}
+class LoginRequest{
+	private String userEmail,userPassword;
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
+}
 class Course{
 	private String courseTitle,price;
 
