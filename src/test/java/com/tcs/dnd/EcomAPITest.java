@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.Arrays;
 import com.tcs.resources.APIResources;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 
 public class EcomAPITest {
 
@@ -37,18 +39,23 @@ public class EcomAPITest {
 		.extract().response().as(CreateProduct.class);		
 		String productId=createProdObj.getProductId();		
 		Addr objInner=new Addr();
-		objInner.setProductOrderId(productId);
+		objInner.setProductOrderedId(productId);
 		objInner.setCountry("India");
 		Orders orderObj=new Orders();		
 		orderObj.setOrderList(Arrays.asList(objInner));
 		
+		
 		//CreateOrder
 		RequestSpecification rs1=new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization", token).setContentType(ContentType.JSON).build();
-		RequestSpecification createOrderSpec=given().spec(rs1).body(orderObj);		
+		RequestSpecification createOrderSpec=given().spec(rs1).body(orderObj);
+		ResponseSpecification respSpec=new ResponseSpecBuilder().expectStatusCode(201).expectContentType(ContentType.JSON).build();
+		
 		CreateOrderResp createOrderRespObj=createOrderSpec.when().post(APIResources.CreateOrderAPI.GetResource())
 		.then().log().all()
+		.spec(respSpec)
 		.extract().response().as(CreateOrderResp.class);
 		String orderId=createOrderRespObj.getOrders().get(0);
+		
 		
 		//ViewOrderDetails
 		RequestSpecification getOrderRs=new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization", token).build();
@@ -58,17 +65,18 @@ public class EcomAPITest {
 		.extract().response().as(GetOrderResp.class);
 		System.out.println(getOrderRespObj.getMessage());
 		
+		
 		//Delete Order
 		//RequestSpecification deleteOrderRs=new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addHeader("Authorization", token).build();
 		RequestSpecification deleteOrderSpec=given().spec(getOrderRs).pathParam("orderId", orderId);//Reuse		
-		DeleteOrderResp deleteOrderRespObj=deleteOrderSpec.when().delete(APIResources.deleteOrderAPI.GetResource()+"{orderId}")
+		DeleteOrderResp deleteOrderRespObj=deleteOrderSpec.when().delete(APIResources.deleteOrderAPI.GetResource()+"/{orderId}")
 		.then().log().all()
 		.extract().response().as(DeleteOrderResp.class);
 		System.out.println(deleteOrderRespObj.getMessage());
 		
 		//DeleteProduct
 		RequestSpecification deleteProductSpec=given().spec(getOrderRs).pathParam("productId", productId);//Reuse		
-		DeleteOrderResp deleteProductRespObj=deleteProductSpec.when().delete(APIResources.deleteProductAPI.GetResource()+"{productId}")
+		DeleteOrderResp deleteProductRespObj=deleteProductSpec.when().delete(APIResources.deleteProductAPI.GetResource()+"/{productId}")
 		.then().log().all()
 		.extract().response().as(DeleteOrderResp.class);
 		System.out.println(deleteProductRespObj.getMessage());

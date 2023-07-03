@@ -134,25 +134,25 @@ class CreateOrderResp{
 	private String message;
 }
 class Orders{
-	private List<Addr> orderList;
+	private List<Addr> orders;
 
 	public List<Addr> getOrders() {
-		return orderList;
+		return orders;
 	}
 
 	public void setOrderList(List<Addr> orderList) {
-		this.orderList = orderList;
+		this.orders = orderList;
 	}
 }
 class Addr{
-	private String productOrderId,country;	
+	private String productOrderedId,country;	
 
-	public String getProductOrderId() {
-		return productOrderId;
+	public String getProductOrderedId() {
+		return productOrderedId;
 	}
 
-	public void setProductOrderId(String productOrderid) {
-		this.productOrderId = productOrderid;
+	public void setProductOrderedId(String productOrderid) {
+		this.productOrderedId = productOrderid;
 	}
 
 	public String getCountry() {
