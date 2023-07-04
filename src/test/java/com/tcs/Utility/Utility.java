@@ -11,4 +11,8 @@ public static JsonPath rawToJson(Response response) {
 public static JsonPath rawToJson(String resp) {
 	return new JsonPath(resp);
 }
+public static String getJsonValuebasedOnKey(String resp,String key) {
+	JsonPath jp=new JsonPath(resp);
+	return jp.getString(key);
+}
 }

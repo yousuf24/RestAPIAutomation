@@ -12,22 +12,6 @@ class DeleteOrderResp{
 		this.message = message;
 	}
 }
-class GetOrderResp{
-	private Data data;
-	public Data getData() {
-		return data;
-	}
-	public void setData(Data data) {
-		this.data = data;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	private String message;
-}
 class Data{
 	private String _id,orderById,orderBy,productOrderedId,productName,country,productDescription,productImage,orderPrice,__v;
 
@@ -273,82 +257,6 @@ class CourseList{
 	public void setMobile(List<Course> mobile) {
 		this.mobile = mobile;
 	}
-}
-class AddPlace{
-	private int accuracy;
-	public int getAccuracy() {
-		return accuracy;
-	}
-	public void setAccuracy(int accuracy) {
-		this.accuracy = accuracy;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getWebsite() {
-		return website;
-	}
-	public void setWebsite(String website) {
-		this.website = website;
-	}
-	public String getLanguage() {
-		return language;
-	}
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	public Location getLocation() {
-		return location;
-	}
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-	public List<String> getTypes() {
-		return types;
-	}
-	public void setTypes(List<String> types) {
-		this.types = types;
-	}
-	private String name,phoneNumber,address,website,language;
-	private Location location;
-	private List<String> types;
-	
-}
-class Location{
-	private double lat,lon;
-
-	public double getLat() {
-		return lat;
-	}
-
-	public void setLat(double lat) {
-		this.lat = lat;
-	}
-
-	public double getLon() {
-		return lon;
-	}
-
-	public void setLon(double lon) {
-		this.lon = lon;
-	}
-
-	
 }
 public class Pojo {
 	private String url,services,expertise,Instructor,linkedIn;

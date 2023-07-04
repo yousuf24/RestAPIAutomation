@@ -1,4 +1,4 @@
-package com.tcs.pojo;
+package com.tcs.dnd;
 
 import java.util.List;
 

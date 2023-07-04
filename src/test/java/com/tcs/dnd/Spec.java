@@ -35,10 +35,10 @@ public class Spec {
 		RequestSpecification rs =new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addQueryParam("key", "qaclick123")
 		.setContentType(ContentType.JSON).build();
 		ResponseSpecification respS=new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+				
+		RequestSpecification addPlaceRs=given().spec(rs).body(ap);
 		
-		Response resp=
-				given().spec(rs).body(ap)
-		.when().post(APIResources.AddPlaceAPI.GetResource())
+		Response resp= addPlaceRs.when().post(APIResources.AddPlaceAPI.GetResource())
 		.then()
 		.spec(respS)
 		.extract().response();
