@@ -4,6 +4,7 @@
 Feature: Validating Place APIs
 #Scenario: Business rule through list of steps with arguments.
 #Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
+@AddPlace
 Scenario Outline: Verify if place added successfully
 #Given: Some precondition step
 Given addPlace payload provided with "<name>","<language>" and "<address>"
@@ -29,4 +30,11 @@ Examples:
 #""
 ## (Comments)
 #Sample Feature Definition Template
+
+@DeletePlace
+Scenario: Verify if Delete API functionality is working
+Given Provided DeletePlaceAPI payload
+When user calls "DeletePlaceAPI" with "Delete" httpRequest
+Then API call is success with "status" in body as "OK"
+
 

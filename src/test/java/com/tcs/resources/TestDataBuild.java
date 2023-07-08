@@ -24,5 +24,9 @@ public class TestDataBuild {
 		ap.setTypes(types);
 		return ap;
 	}
-	
+	public String deletePlacePayLoad(String placeId) {
+		return System.out.format("{\r\n"
+				+ "    \"place_id\":\"%1$s\"\r\n"
+				+ "}",placeId).toString();
+	}
 }

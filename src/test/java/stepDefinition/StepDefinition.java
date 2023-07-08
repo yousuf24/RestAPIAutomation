@@ -18,10 +18,11 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class StepDefinition extends Utils {
-	RequestSpecification rs,addPlaceRs;
+	RequestSpecification rs,addPlaceRs,deletePlaceRs;
 	ResponseSpecification respS;
 	Response resp;
 	TestDataBuild data=new TestDataBuild();
+	String placeId;
 	@Given("addPlace payload provided with {string},{string} and {string} ")
 	public void add_place_payload_is_provided(String name,String language,String address) throws IOException {		
 		
@@ -29,6 +30,11 @@ public class StepDefinition extends Utils {
 		addPlaceRs=given()
 				.spec(rs)
 				.body(data.addPlacePayLoad(name,language,address));
+	}
+	@Given("Provided DeletePlaceAPI payload")
+	public void provided_deletePlaceAPI_payload() throws IOException {
+		deletePlaceRs=given().spec(requestSpec()).body(data.deletePlacePayLoad(placeId));
+		
 	}
 
 	@When("User calls the {string} using {string} http request")
@@ -63,7 +69,7 @@ public class StepDefinition extends Utils {
 	
 	@Then("Verify placeId created maps to {string} using {string}")
 	public void verify_place_id_created_maps_to_using(String name, String apiResource) throws IOException {
-		String placeId=Utility.getJsonValuebasedOnKey(resp.asString(),"place_id");
+		placeId=Utility.getJsonValuebasedOnKey(resp.asString(),"place_id");
 		
 		String apiRes=APIResources.valueOf(apiResource).GetResource();
 	    
