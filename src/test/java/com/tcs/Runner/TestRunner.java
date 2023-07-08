@@ -6,9 +6,11 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/com/tcs/features/PlaceValidation.feature",
-plugin={"json:target/jsonReports/cucumber-report.json"},
-glue= {"stepDefinition"},tags= "@AddPlace")
+@CucumberOptions(
+		features="src/test/java/com/tcs/features/PlaceValidation.feature",
+		plugin={"json:target/jsonReports/cucumber-report.json"},
+		glue= {"stepDefinition"},
+		tags= "@AddPlace and ~@Regression")
 public class TestRunner {
 
 }

@@ -23,9 +23,8 @@ public class XcelIntegration {
 	}
 	public static ArrayList<String> getData(String s) throws IOException{
 		ArrayList<String> al=new ArrayList<>();
-		File f=new File("C:\\Users\\HI\\My_Items\\Job\\Softwares\\EclipseIDE\\eclipseIDE_ws\\APIFramework\\src\\test\\java\\com\\tcs\\resources\\TestData.xlsx");
-		FileInputStream fi=new FileInputStream(f);
-		
+		File f=new File("C:\\Users\\HI\\My_Items\\Job\\Softwares\\EclipseIDE\\eclipseIDE_ws\\APIFramework\\RestAPIAutomation\\src\\test\\java\\com\\tcs\\resources\\TestData.xlsx");
+		FileInputStream fi=new FileInputStream(f);		
 		XSSFWorkbook wb=new XSSFWorkbook(fi);
 		int no=wb.getNumberOfSheets();
 		
